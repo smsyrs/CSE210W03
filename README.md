@@ -32,3 +32,4 @@ root                    (project root folder)
 ---
 Samantha Jenkins
 David Sevey
+Michael Cochran
