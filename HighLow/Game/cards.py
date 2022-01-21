@@ -1,4 +1,5 @@
 import random
+import game.ascii_art as art
 
 #Used symbols instead of words for card suits
 card_suits = ["♥️", "♣️", "♦️", "♠️"]
@@ -71,15 +72,6 @@ class Deck:
         random.shuffle(self.deck)
 
     def drawcard(self):
-        self.deck.pop()
+        return self.deck.pop()
 
-    # def print_top(self):
-    #     return self.deck.__str__()
-
-#This was just added to make sure this was working, it creates the deck and then prints it
-deck = Deck()
-deck.shuffle()
-
-current_card = deck.drawcard()
-
-print(current_card)
+print(art.game_over)
