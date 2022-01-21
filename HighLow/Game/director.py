@@ -7,10 +7,10 @@ class Director:
     The responsibility of a Director is to control the sequence of play.
 
     Attributes:
-        dice (List[Die]): A list of Die instances.
+        deck (List[deck]): A 52 deck of cards is created and the shuffled
         is_playing (boolean): Whether or not the game is being played.
-        score (int): The score for one round of play.
-        total_score (int): The score for the entire game.
+        total_score (int): Players current score
+        current_cards(List): Two cards are taken from the deck list.
     """
 
     def __init__(self):
@@ -22,8 +22,7 @@ class Director:
         self.deck = Deck()
         self.deck.shuffle()
         self.is_playing = True
-        self.score = 0
-        self.total_score = 75
+        self.total_score = 300
         self.current_cards = []
         for x in range(2):
             self.current_cards.append(self.deck.drawcard())
@@ -53,7 +52,7 @@ class Director:
             self.is_playing = (keep_playing == "Y")
        
     def get_card(self):
-        """Updates the player's score.
+        """Gets a new card to add to current cards list
 
         Args:
             self (Director): An instance of Director.
@@ -63,7 +62,7 @@ class Director:
 
 
     def check_answer(self,answer):
-        """Displays the dice and the score. Also asks the player if they want to roll again. 
+        """Checks players answer and determines if the game can continue base on players score
 
         Args:
             self (Director): An instance of Director.
@@ -82,5 +81,5 @@ class Director:
             print(f"Card was {self.current_cards[1]}\nIncorrect, 75 points subtracted from score")
 
         if self.total_score < 0:
-            print("Game Over")
+            print(art.game_over)
             self.is_playing = False
