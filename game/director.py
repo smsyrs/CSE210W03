@@ -39,7 +39,7 @@ class Director:
         Args:
             self(Director): an instance of Director"""
         print(f"The card is: {self.pile[0]}")
-        self.guess = input("Higher or Lower? [h/l] ")
+        self.guess = input("Higher,Lower, or Equal? [h/l/e] ")
     
     def do_updates(self):
         """Prints the next cards and calculates points based on the previously inputted guess
@@ -56,6 +56,10 @@ class Director:
             self.total_score -=75
         elif (self.pile[0].value > self.pile[1].value) and self.guess.lower() == "l":
             self.total_score += 100
+        elif (self.pile[0].value == self.pile[1].value) and self.guess.lower() == "e":
+            self.total_score += 100
+        elif (self.pile[0].value != self.pile[1].value) and self.guess.lower() == "e":
+            self.total_score -=75
 
     
     def do_outputs(self):
