@@ -40,6 +40,10 @@ card_values = {
 '''This class will be used by the deck class to create all cards needed for the deck
 A card will have a suit and a rank.
 The rank will align with the value using the card values dictionary and the card ranks set
+    Attributes:
+        suit (str): pulled from the cards suits, total 4
+        rank (str): pulled from the card ranks, name of card
+        value (int): the value of the card
 '''
 class Card:
     def __init__(self, suit, rank):
@@ -53,6 +57,8 @@ class Card:
 '''
 A deck will create 52 cards using the Card class
 the deck uses the for loop is the card_suits list to make 13 cards of each suit
+    Attributes:
+        deck (list): a list of all the cards
 '''
 class Deck:
     def __init__(self):
@@ -71,15 +77,4 @@ class Deck:
         random.shuffle(self.deck)
 
     def drawcard(self):
-        self.deck.pop()
-
-    # def print_top(self):
-    #     return self.deck.__str__()
-
-#This was just added to make sure this was working, it creates the deck and then prints it
-deck = Deck()
-deck.shuffle()
-
-current_card = deck.drawcard()
-
-print(current_card)
+        return self.deck.pop()
