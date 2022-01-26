@@ -69,22 +69,20 @@ class Director:
         
         Args:
             self(Director): an instance of Director"""
-        #def print_ascii(file_name):
-            #f=open(file_name, 'rt')
-            #print(''.join([line for line in f]))
-            #return False
+        def print_ascii(file_name):
+            f=open(file_name, 'r')
+            print(''.join([line for line in f]))
+            return False
 
         print(f"Your score is: {self.total_score}")
         if self.total_score <=0:
-            self.is_playing = False
-            #print_ascii('ascii_art.txt')
+            self.is_playing = print_ascii(r'CSE210W03\game\ascii_art.txt')
             
         else:
             playAgain = input("Play again? [y/n] ")
 
             if playAgain.lower() == "n":
-                self.is_playing = False
-                #print_ascii('ascii_art.txt')
+                self.is_playing = self.is_playing = print_ascii(r'CSE210W03\game\ascii_art.txt')
                 
             else:
                 self.pile.pop(0)
